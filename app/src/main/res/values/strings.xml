@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">EditingUsersProfile</string>
+    <string name="app_name">Editing_Users_Profile</string>
+    <string name="deafault_name">Deafault Name</string>
+    <string name="deafault_email">Default Email</string>
+    <string name="deafault_phone">Defult Phone</string>
+    <string name="title_activity_editing">EditingActivity</string>
+    <string name="edit_name">Редактировать имя</string>
+    <string name="edit_email">Редактировать почту</string>
+    <string name="edit_phone">Редактировать телефон</string>
+    <string name="btn_apply">Подтвердить</string>
+    <string name="btn_cancel">Отменить</string>
+    <string name="photo">Фото</string>
+    <string name="gallery">Галерея</string>
+    <string name="share">Поделиться</string>
 </resources>
