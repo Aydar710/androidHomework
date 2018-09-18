@@ -84,4 +84,5 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(Intent.EXTRA_TEXT, message);
         startActivityForResult(intent, 1);
     }
+
 }
