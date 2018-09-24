@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">EditingUsersProfile</string>
+
+    <string name="app_name">App</string>
+    <string name="filter_send">Filter - EDIT</string>
+    <string name="action_view">Action - View</string>
+    <string name="action_dial">Action - Dial</string>
+    <string name="action_edit">Action - EDIT</string>
+    <string name="filter_view">Filter - View</string>
+    <string name="filter_dial">Filter - Dial</string>
 </resources>
