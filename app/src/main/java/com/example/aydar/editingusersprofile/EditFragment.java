@@ -30,7 +30,6 @@ public class EditFragment extends DialogFragment {
     private MyListener listener;
 
     public EditFragment() {
-        // Required empty public constructor
     }
 
     @Override
