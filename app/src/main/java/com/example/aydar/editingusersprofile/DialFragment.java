@@ -3,33 +3,24 @@ package com.example.aydar.editingusersprofile;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-
-import java.util.function.ToDoubleBiFunction;
 
 
-//Не закончено
-
-public class EditFragment extends DialogFragment {
+public class DialFragment extends DialogFragment {
 
     EditText etLogin;
     EditText etPassword;
-    Button btnEdit;
     private MyListener listener;
 
-    public EditFragment() {
+    public DialFragment() {
     }
 
     @Override
@@ -43,10 +34,10 @@ public class EditFragment extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        return super.onCreateDialog(savedInstanceState);
+        super.onCreateDialog(savedInstanceState);
 
-        //***
-        View view = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_edit, null);
+        View view = LayoutInflater.from(getContext())
+                .inflate(R.layout.dialog_edit, null);
 
         etLogin = view.findViewById(R.id.et_login);
         etPassword = view.findViewById(R.id.et_password);
@@ -60,7 +51,6 @@ public class EditFragment extends DialogFragment {
                 .setNegativeButton("No, Thanks", (dialog, which) -> {
                     dismiss();
                 });
-
         return adBuilder.create();
 
     }
@@ -71,7 +61,13 @@ public class EditFragment extends DialogFragment {
 
     }
 
-    interface MyListener{
+    interface MyListener {
         void onClick(String login, String password);
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        listener = null;
     }
 }
