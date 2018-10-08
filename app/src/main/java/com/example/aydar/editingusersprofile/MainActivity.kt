@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.widget.LinearLayout
+import com.example.aydar.editingusersprofile.R.layout.activity_main
 
 class MainActivity : AppCompatActivity(), AdapterMiracle.Listener {
     override fun onClick(position: Int) {
@@ -16,7 +17,7 @@ class MainActivity : AppCompatActivity(), AdapterMiracle.Listener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(activity_main)
         setTitle("Miracles")
 
         val recyclerView : RecyclerView = findViewById(R.id.recycler)
