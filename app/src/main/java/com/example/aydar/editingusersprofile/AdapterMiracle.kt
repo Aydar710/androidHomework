@@ -17,7 +17,6 @@ class AdapterMiracle(val miracles: Array<Miracle>) : RecyclerView.Adapter<Adapte
         return ViewHolder(v as CardView)
     }
 
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val miracle: Miracle = miracles[position]
 
@@ -46,9 +45,7 @@ class AdapterMiracle(val miracles: Array<Miracle>) : RecyclerView.Adapter<Adapte
         fun onClick(position: Int)
     }
 
-
     fun setListener(listener: Listener) {
         this.listener = listener
     }
-
 }

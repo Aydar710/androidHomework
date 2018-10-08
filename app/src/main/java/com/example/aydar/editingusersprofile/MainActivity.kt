@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity(), AdapterMiracle.Listener {
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         val adapter = AdapterMiracle(Miracle.miracles)
         adapter.setListener(this)
-
         recyclerView.adapter = adapter
     }
 }

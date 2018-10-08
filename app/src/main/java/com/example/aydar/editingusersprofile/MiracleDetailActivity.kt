@@ -15,7 +15,6 @@ class MiracleDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_miracle_detail)
 
-
         val miracleNo: Int = intent.extras.getInt(Miracle.EXTRA)
         val miracle: Miracle = Miracle.miracles[miracleNo]
 
@@ -24,9 +23,7 @@ class MiracleDetailActivity : AppCompatActivity() {
         imageMiracle = findViewById(R.id.image_miracle_detail)
         txtLocation.text = miracle.location
         txtDescription.text = miracle.description
-
         imageMiracle.setImageResource(miracle.image)
         setTitle(miracle.name)
-
     }
 }

@@ -19,9 +19,5 @@ class Miracle(val name: String, val description: String, val image: Int, val loc
                 Miracle("Мавзолей в Галикарнасе", mavzDesc, R.drawable.mavzoley, "Турция"),
                 Miracle("Колосс Родосский", colosDesc, R.drawable.colos, "Греция"),
                 Miracle("Александрийский маяк", mayakDesc, R.drawable.mayak, "Египет"))
-
-
     }
-
-
 }
