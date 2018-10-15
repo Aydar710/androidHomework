@@ -1,6 +1,8 @@
-package com.example.aydar.editingusersprofile
+package com.example.aydar.editingusersprofile.miracle
 
-class Miracle(val name: String, val description: String, val image: Int, val location: String) {
+import com.example.aydar.editingusersprofile.R
+
+class Miracle(val name: String, val description: String, val image: Int, val location: String, val order: Int) {
 
     companion object {
         val EXTRA: String? = null
@@ -11,13 +13,30 @@ class Miracle(val name: String, val description: String, val image: Int, val loc
         val mavzDesc: String = "Правитель Карии Мавсол ещё при жизни в 353 году до н.э. начал строительство собственной усыпальницы в Галикарнасе (современный Бодрум, Турция). Грандиозное погребальное сооружение высотой 46 метров, опоясанное 36 колоннами и увенчанное изваянием колесницы, произвело столь сильное впечатление на современников, что с тех пор все монументальные гробницы стали называть мавзолеями по имени царя Мавсола."
         val colosDesc: String = "Гигантская статуя древнегреческого бога солнца Гелиоса была установлена у входа в Родосский порт в 292 — 280 гг. до н. э.. Стройный юноша-бог, изваянный в полный рост, держал в руке факел. Между ног статуи проплывали корабли. Всего 65 лет Колосс Родосский простоял на своём месте: в 222 г. до н.э. его разрушило землетрясение. Обломки скульптуры перевозили на 900 верблюдах."
         val mayakDesc: String = "В 270 году до н.э. на острове Фарос при входе в порт Александрии воздвигли огромную башню высотой 120 метров. На вершине маяка постоянно горел костёр, свет которого усиливался при помощи металлических вогнутых зеркал, и был виден на расстоянии 60 километров. Дерево для огня доставляли наверх по винтовой лестнице на телегах, запряжённых мулами. Маяк уничтожен землетрясением в XIV веке."
-        var miracles: Array<Miracle> = arrayOf(
-                Miracle("Пирамида Хеопса", piramDesc, R.drawable.piramida, "Египет"),
-                Miracle("Висячие сады Семирамиды", gardensDesc, R.drawable.hanging_gardens, "Азия"),
-                Miracle("Статуя Зевса", zeusDesc, R.drawable.zeus, "Греция"),
-                Miracle("Храм Артемиды", khramDesc, R.drawable.khram, "Турция"),
-                Miracle("Мавзолей в Галикарнасе", mavzDesc, R.drawable.mavzoley, "Турция"),
-                Miracle("Колосс Родосский", colosDesc, R.drawable.colos, "Греция"),
-                Miracle("Александрийский маяк", mayakDesc, R.drawable.mayak, "Египет"))
+
+        var miracles : ArrayList<Miracle> = arrayListOf(
+                Miracle("Храм Артемиды", khramDesc, R.drawable.khram, "Турция", 3),
+                Miracle("Мавзолей в Галикарнасе", mavzDesc, R.drawable.mavzoley, "Турция", 5),
+                Miracle("Висячие сады Семирамиды", gardensDesc, R.drawable.hanging_gardens, "Азия", 2),
+                Miracle("Пирамида Хеопса", piramDesc, R.drawable.piramida, "Египет", 1),
+                Miracle("Статуя Зевса", zeusDesc, R.drawable.zeus, "Греция", 4),
+                Miracle("Колосс Родосский", colosDesc, R.drawable.colos, "Греция", 6),
+                Miracle("Александрийский маяк", mayakDesc, R.drawable.mayak, "Египет", 7)
+        )
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as Miracle
+
+        if (name != other.name) return false
+        if (description != other.description) return false
+        if (image != other.image) return false
+        if (location != other.location) return false
+        if (order != other.order) return false
+
+        return true
     }
 }
