@@ -17,11 +17,16 @@ class RecyclerFragment : Fragment(), AdapterMiracle.Listener {
 
     lateinit var adapter : AdapterMiracle
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         var view: View = inflater.inflate(R.layout.fragment_recycler, container, false)
 
-        var recyclerView: RecyclerView = view.findViewById(R.id.recycler_fr)
+        var recyclerView: RecyclerView = view.findViewById(R.id.rv_miracles)
         recyclerView.layoutManager = LinearLayoutManager(view.context, LinearLayout.VERTICAL, false)
         adapter = AdapterMiracle(Miracle.miracles)
         adapter.setListener(this)
@@ -30,20 +35,9 @@ class RecyclerFragment : Fragment(), AdapterMiracle.Listener {
         return view
     }
 
-    override fun onClick(position: Int) {
-        val intent: Intent = Intent(context, MiracleDetailActivity::class.java)
-        intent.putExtra(Miracle.EXTRA, position)
-        startActivity(intent)
-    }
-
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater?.inflate(R.menu.menu_recycler, menu)
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -58,5 +52,11 @@ class RecyclerFragment : Fragment(), AdapterMiracle.Listener {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onClick(position: Int) {
+        val intent: Intent = Intent(context, MiracleDetailActivity::class.java)
+        intent.putExtra(Miracle.EXTRA, position)
+        startActivity(intent)
     }
 }

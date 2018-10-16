@@ -20,7 +20,10 @@ class ViewPagerFragment : Fragment() {
         tabLayout = view.findViewById<TabLayout>(R.id.tabLayout)
         viewPager = view.findViewById(R.id.view_pager)
 
-        var adapter : TabsFragmentAdapter = TabsFragmentAdapter(activity?.supportFragmentManager)
+        val tabs: Array<String> = arrayOf("Tab1", "Tab2", "Tab3")
+        val fragments : Array<FirstTabFragment.Companion> = arrayOf(FirstTabFragment)
+
+        var adapter : TabsFragmentAdapter = TabsFragmentAdapter(activity?.supportFragmentManager, tabs, fragments)
         viewPager.adapter = adapter
         tabLayout.setupWithViewPager(viewPager)
 

@@ -23,11 +23,8 @@ class AdapterMiracle(val miracles: ArrayList<Miracle>) : RecyclerView.Adapter<Ad
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val miracle: Miracle = miracles.get(position)
-
         holder.txtName.text = miracle.name
-
         holder.imageMiracle.setImageResource(miracle.image)
-
         holder.itemView.setOnClickListener {
             listener?.let {
                 it.onClick(position)
@@ -40,10 +37,8 @@ class AdapterMiracle(val miracles: ArrayList<Miracle>) : RecyclerView.Adapter<Ad
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
         var txtName: TextView = itemView.txt_miracle
         val imageMiracle: ImageView = itemView.image_miracle
-
     }
 
     interface Listener {

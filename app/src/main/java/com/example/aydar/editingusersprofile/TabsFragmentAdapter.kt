@@ -5,9 +5,7 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import com.example.aydar.editingusersprofile.fragments.FirstTabFragment
 
-class TabsFragmentAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm) {
-
-    val tabs: Array<String> = arrayOf("Tab1", "Tab2", "Tab3")
+class TabsFragmentAdapter(fm: FragmentManager?, val tabs: Array<String>, val fragments: Array<FirstTabFragment.Companion>) : FragmentPagerAdapter(fm) {
 
     override fun getPageTitle(position: Int): CharSequence? {
         return tabs[position]
@@ -16,18 +14,19 @@ class TabsFragmentAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm) {
     override fun getItem(position: Int): Fragment? =
             when (position) {
                 0 -> {
-                    FirstTabFragment.newInstance(tabs[position])
+                    fragments[0].newInstance(tabs[position]) // *
                 }
                 1 -> {
-                    FirstTabFragment.newInstance(tabs[position])
+                    fragments[0].newInstance(tabs[position]) // *
                 }
                 2 -> {
-                    FirstTabFragment.newInstance(tabs[position])
+                    fragments[0].newInstance(tabs[position]) // *
                 }
                 else -> {
                     println("asdasd")
                     null
                 }
+                // * все три фрагмента пустые, думаю, нет смысла создавать 3 одинаковых
             }
 
     override fun getCount(): Int {

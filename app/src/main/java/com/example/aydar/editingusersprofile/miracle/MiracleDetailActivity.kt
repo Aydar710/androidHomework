@@ -9,11 +9,6 @@ import kotlinx.android.synthetic.main.activity_miracle_detail.*
 
 class MiracleDetailActivity : AppCompatActivity() {
 
-    lateinit var txtLocation: TextView
-    lateinit var txtOrder: TextView
-    lateinit var txtDescription: TextView
-    lateinit var imageMiracle: ImageView
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(activity_miracle_detail)
@@ -21,14 +16,11 @@ class MiracleDetailActivity : AppCompatActivity() {
         val miracleNo: Int = intent.extras.getInt(Miracle.EXTRA)
         val miracle: Miracle = Miracle.miracles.get(miracleNo)
 
-        txtLocation = txt_miracle_location
-        txtOrder = txt_miracle_order
-        txtDescription = txt_miracle_description
-        imageMiracle = image_miracle_detail
-        txtLocation.text = miracle.location
-        txtOrder.text = miracle.order.toString()
-        txtDescription.text = miracle.description
-        imageMiracle.setImageResource(miracle.image)
+        txt_miracle_location.text = miracle.location
+        txt_miracle_order.text = miracle.order.toString()
+        txt_miracle_description.text = miracle.description
+        image_miracle_detail.setImageResource(miracle.image)
+
         setTitle(miracle.name)
     }
 }

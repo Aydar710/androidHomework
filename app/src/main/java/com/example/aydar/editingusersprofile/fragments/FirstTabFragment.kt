@@ -11,6 +11,7 @@ import com.example.aydar.editingusersprofile.R
 
 class FirstTabFragment : Fragment() {
 
+
     companion object {
         const val ARG_TEXT = "text"
 
