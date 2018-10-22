@@ -1,5 +1,6 @@
 package com.example.aydar.editingusersprofile
 
+import android.annotation.SuppressLint
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
@@ -20,19 +21,16 @@ class MainActivity : AppCompatActivity() {
     lateinit var pendingIntent: PendingIntent
     lateinit var alarmManager: AlarmManager
 
-    @RequiresApi(Build.VERSION_CODES.M)
+    @SuppressLint("NewApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val notificationHelper = NotificationHelper(this)
-        notificationHelper.createNotificationChannel()
 
         timePicker = findViewById(R.id.time_picker)
         btn_on.setOnClickListener {
             calendar = Calendar.getInstance()
             alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
-            var intent = Intent(applicationContext, Receiver::class.java)
+            var intent = Intent(this, Receiver::class.java)
             intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES)
 
             calendar.set(Calendar.HOUR_OF_DAY, timePicker.hour)

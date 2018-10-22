@@ -8,6 +8,7 @@ import android.content.Intent
 import android.media.AudioAttributes
 import android.media.RingtoneManager
 import android.os.Build
+import android.support.annotation.RequiresApi
 import android.support.v4.app.NotificationCompat
 import android.support.v4.app.NotificationManagerCompat
 
@@ -17,6 +18,7 @@ class NotificationHelper(val context: Context) {
         val CHANNEL_ID = "CHANNEL_ID"
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val name = "Channel name"
@@ -31,8 +33,7 @@ class NotificationHelper(val context: Context) {
         }
     }
 
-    fun showNotification() {
-        var intent: Intent = Intent(context, SecondActivity::class.java)
+    fun showNotification(intent: Intent) {
         var pendingIntent: PendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT)
 
         var mBuilder = NotificationCompat.Builder(context, CHANNEL_ID)
