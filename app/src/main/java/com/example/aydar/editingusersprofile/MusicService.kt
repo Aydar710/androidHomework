@@ -8,6 +8,8 @@ import android.os.Binder
 import android.os.Build
 import android.os.IBinder
 import android.support.v4.app.NotificationCompat
+import android.widget.ImageView
+import kotlinx.android.synthetic.main.activity_music.*
 
 class MusicService : Service() {
     val CONST_ACTION_MAIN = "ACTION_MAIN"
@@ -22,6 +24,7 @@ class MusicService : Service() {
     private var currentPosition: Int = 0
     private val playList: ArrayList<Song> = Song.songs
     private lateinit var listener: Callback
+    var imagePlay : ImageView = MainActivity().image_play
 
 
     override fun onBind(intent: Intent): IBinder {
@@ -35,7 +38,7 @@ class MusicService : Service() {
     }
 
 
-    fun playMusic() {
+    fun playOrStopMusic() {
         if (mediaPlayer == null) {
             launchForeground()
             mediaPlayer = MediaPlayer.create(this, R.raw.billiejean)
@@ -50,6 +53,7 @@ class MusicService : Service() {
                 currentPosition = it.currentPosition
             }
             //TODO поменять иконку play на stop
+            //imagePlay.setImageDrawable(R.drawable.stop)
         }
     }
 
@@ -139,7 +143,7 @@ class MusicService : Service() {
             if (mediaPlayer?.isPlaying!!)
                 pauseMusic()
             else
-                playMusic()
+                playOrStopMusic()
         }
         if (intent?.action == CONST_ACTION_PREV) {
             playPreviousSong()

@@ -14,7 +14,6 @@ import android.support.annotation.RequiresApi
 import android.support.v7.preference.PreferenceManager
 import android.view.View
 import kotlinx.android.synthetic.main.activity_music.*
-import kotlinx.android.synthetic.main.card_music.*
 
 class MusicActivity : AppCompatActivity(), View.OnClickListener, MusicService.Callback {
     override fun changeData(p: Int) {
@@ -54,13 +53,9 @@ class MusicActivity : AppCompatActivity(), View.OnClickListener, MusicService.Ca
     override fun onStop() {
         super.onStop()
         if (isBound) {
-            //  val currentPosition = musicService.getCurrentPosition()
-            //  var intent = Intent(this, MusicService::class.java)
-            //  intent.putExtra("currentPosition", currentPosition);
-            //  musicService.onDestroy()
+
             unbindService(connection)
             isBound = false
-            // startService(intent)
         }
     }
 
@@ -81,7 +76,7 @@ class MusicActivity : AppCompatActivity(), View.OnClickListener, MusicService.Ca
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btn_play -> {
-                musicService.playMusic()
+                musicService.playOrStopMusic()
             }
             R.id.btn_pause -> {
                 musicService.pauseMusic()
@@ -130,6 +125,9 @@ class MusicActivity : AppCompatActivity(), View.OnClickListener, MusicService.Ca
             }
             "theme3" -> {
                 themeId = R.style.AppTheme3
+            }
+            "theme4" -> {
+                themeId = R.style.AppTheme4
             }
         }
         setTheme(themeId)

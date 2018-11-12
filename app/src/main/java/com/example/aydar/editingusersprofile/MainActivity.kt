@@ -18,8 +18,6 @@ import android.support.v4.content.ContextCompat.getSystemService
 import android.app.PendingIntent
 
 
-
-
 class MainActivity : AppCompatActivity(), SongAdapter.Listener {
 
 
@@ -58,17 +56,6 @@ class MainActivity : AppCompatActivity(), SongAdapter.Listener {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
-            R.id.action_change -> {
-                val sharedPref = PreferenceManager.getDefaultSharedPreferences(this)
-                val currentTheme = sharedPref.getString("theme", "theme1")
-                var themeId = R.style.AppTheme
-                when (currentTheme) {
-                    "theme2" -> themeId = R.style.AppTheme2
-                    "theme3" -> themeId = R.style.AppTheme3
-                }
-                this.setTheme(themeId)
-                recreate()
-            }
             R.id.action_themes -> {
                 val intent = Intent(this, SettingsActivity::class.java)
                 startActivity(intent)
@@ -79,22 +66,4 @@ class MainActivity : AppCompatActivity(), SongAdapter.Listener {
     }
 
 
-
-    fun changeTheme(){
-        val sharedPref = PreferenceManager.getDefaultSharedPreferences(this)
-        val currentTheme = sharedPref.getString("theme", "theme1")
-        var themeId = R.style.AppTheme
-        when (currentTheme) {
-            "theme1" -> {
-                themeId = R.style.AppTheme
-            }
-            "theme2" -> {
-                themeId = R.style.AppTheme2
-            }
-            "theme3" -> {
-                themeId = R.style.AppTheme3
-            }
-        }
-        setTheme(themeId)
-    }
 }

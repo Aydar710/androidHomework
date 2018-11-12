@@ -16,17 +16,11 @@ class SettingsActivity : PreferenceActivity(), SharedPreferences.OnSharedPrefere
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Theme(this).changeTheme()
         super.onCreate(savedInstanceState)
         addPreferencesFromResource(R.xml.pref)
 
-//        val fragment : SettingsFragment = SettingsFragment()
-//        supportFragmentManager.beginTransaction()
-//                .replace(R.id.frame, fragment)
-//                .commit()
 
-//        supportFragmentManager.beginTransaction()
-//                .replace(R.id.frame, SettingsFragment())
-//                .commit()
     }
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
         if (key.equals("theme")){

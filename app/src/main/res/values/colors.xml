@@ -7,7 +7,15 @@
     <color name="colorPrimaryTheme2">#FF5722</color>
     <color name="colorPrimaryDarkTheme2">#E64A19</color>
     <color name="colorAccentTheme2">#795548</color>
-    <color name="colorPrimaryTheme3">#3cefe3</color>
-    <color name="colorPrimaryDarkTheme3">#dfc91f</color>
-    <color name="colorAccentTheme3">#5a1a9edc</color>
+
+    <color name="colorPrimaryTheme3">#9C27B0</color>
+    <color name="colorPrimaryDarkTheme3">#7B1FA2</color>
+    <color name="colorAccentTheme3">#7C4DFF</color>
+
+    <color name="colorPrimaryTheme4">#009688</color>
+    <color name="colorPrimaryDarkTheme4">#00796B</color>
+    <color name="colorAccentTheme4">#00BCD4</color>
+
+    <color name="colorSinger">#002fff</color>
+    <color name="colorSong">#000000</color>
 </resources>

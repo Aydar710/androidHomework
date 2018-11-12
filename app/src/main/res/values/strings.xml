@@ -20,6 +20,7 @@
         <item>theme1</item>
         <item>theme2</item>
         <item>theme3</item>
+        <item>theme4</item>
     </string-array>
     <string-array name="pref_example_list_values">
         <item>1</item>

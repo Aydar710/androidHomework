@@ -9,15 +9,10 @@ class Theme(val context: Context) {
         val currentTheme = sharedPref.getString("theme", "theme1")
         var themeId = R.style.AppTheme
         when (currentTheme) {
-            "theme1" -> {
-                themeId = R.style.AppTheme
-            }
-            "theme2" -> {
-                themeId = R.style.AppTheme2
-            }
-            "theme3" -> {
-                themeId = R.style.AppTheme3
-            }
+            "theme1" -> themeId = R.style.AppTheme
+            "theme2" -> themeId = R.style.AppTheme2
+            "theme3" -> themeId = R.style.AppTheme3
+            "theme4" -> themeId = R.style.AppTheme4
         }
         context.setTheme(themeId)
     }
