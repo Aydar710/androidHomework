@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.IBinder
 import android.support.annotation.RequiresApi
+import android.support.v7.preference.PreferenceManager
 import android.view.View
 import kotlinx.android.synthetic.main.activity_music.*
 import kotlinx.android.synthetic.main.card_music.*
@@ -26,6 +27,9 @@ class MusicActivity : AppCompatActivity(), View.OnClickListener, MusicService.Ca
     var isBound = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        Theme(this).changeTheme()
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_music)
         btn_play.setOnClickListener(this)
@@ -112,5 +116,22 @@ class MusicActivity : AppCompatActivity(), View.OnClickListener, MusicService.Ca
         super.onDestroy()
         val intent = Intent(this, MusicService::class.java)
         stopService(intent)
+    }
+    fun changeTheme(){
+        val sharedPref = PreferenceManager.getDefaultSharedPreferences(this)
+        val currentTheme = sharedPref.getString("theme", "theme1")
+        var themeId = R.style.AppTheme
+        when (currentTheme) {
+            "theme1" -> {
+                themeId = R.style.AppTheme
+            }
+            "theme2" -> {
+                themeId = R.style.AppTheme2
+            }
+            "theme3" -> {
+                themeId = R.style.AppTheme3
+            }
+        }
+        setTheme(themeId)
     }
 }

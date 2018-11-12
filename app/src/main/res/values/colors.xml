@@ -4,10 +4,10 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="color1">#b90404</color>
-    <color name="color2">#19d616</color>
-    <color name="color3">#2f5dac</color>
-    <color name="color4">#3cefe3</color>
-    <color name="color5">#dfc91f</color>
-    <color name="color6">#5a1a9edc</color>
+    <color name="colorPrimaryTheme2">#FF5722</color>
+    <color name="colorPrimaryDarkTheme2">#E64A19</color>
+    <color name="colorAccentTheme2">#795548</color>
+    <color name="colorPrimaryTheme3">#3cefe3</color>
+    <color name="colorPrimaryDarkTheme3">#dfc91f</color>
+    <color name="colorAccentTheme3">#5a1a9edc</color>
 </resources>

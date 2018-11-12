@@ -1,5 +1,6 @@
 package com.example.aydar.editingusersprofile
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -12,9 +13,15 @@ import android.support.v7.preference.PreferenceManager
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.app.AlarmManager
+import android.support.v4.content.ContextCompat.getSystemService
+import android.app.PendingIntent
+
+
 
 
 class MainActivity : AppCompatActivity(), SongAdapter.Listener {
+
 
     companion object {
         var CONST_SONG_NUM: String = "SONG_NUM"
@@ -22,30 +29,7 @@ class MainActivity : AppCompatActivity(), SongAdapter.Listener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        val sharedPref = PreferenceManager.getDefaultSharedPreferences(this)
-        val currentTheme = sharedPref.getString("theme", "theme1")
-        var themeId = 0
-        var isChanged = false
-        when (currentTheme) {
-            "theme1" -> {
-                themeId = R.style.AppTheme
-                isChanged = true
-            }
-            "theme2" -> {
-                themeId = R.style.AppTheme2
-                isChanged = true
-            }
-            "theme3" -> {
-                themeId = R.style.AppTheme3
-                isChanged = true
-            }
-        }
-        if (isChanged) {
-            setTheme(themeId)
-            isChanged = false
-            Log.i("myTag", "Recreating activity")
-            recreate()
-        }
+        Theme(this).changeTheme()
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -92,5 +76,25 @@ class MainActivity : AppCompatActivity(), SongAdapter.Listener {
         }
 
         return super.onOptionsItemSelected(item)
+    }
+
+
+
+    fun changeTheme(){
+        val sharedPref = PreferenceManager.getDefaultSharedPreferences(this)
+        val currentTheme = sharedPref.getString("theme", "theme1")
+        var themeId = R.style.AppTheme
+        when (currentTheme) {
+            "theme1" -> {
+                themeId = R.style.AppTheme
+            }
+            "theme2" -> {
+                themeId = R.style.AppTheme2
+            }
+            "theme3" -> {
+                themeId = R.style.AppTheme3
+            }
+        }
+        setTheme(themeId)
     }
 }
