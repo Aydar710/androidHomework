@@ -33,6 +33,7 @@ class MusicActivity : AppCompatActivity(), View.OnClickListener, MusicService.Ca
         btn_next.setOnClickListener(this)
         btn_prev.setOnClickListener(this)
         changeData(getIntent().getIntExtra(MainActivity.CONST_SONG_NUM, 0))
+
     }
 
     override fun onStart() {

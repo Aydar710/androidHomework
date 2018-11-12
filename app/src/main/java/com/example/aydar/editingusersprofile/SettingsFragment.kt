@@ -3,6 +3,7 @@ package com.example.aydar.editingusersprofile
 
 import android.os.Bundle
 import android.app.Fragment
+import android.preference.PreferenceFragment
 import android.support.v7.preference.PreferenceFragmentCompat
 import android.view.LayoutInflater
 import android.view.View
@@ -17,8 +18,14 @@ private const val ARG_PARAM2 = "param2"
 
 class SettingsFragment : PreferenceFragmentCompat() {
 
-    override fun onCreatePreferences(p0: Bundle?, p1: String?) {
+    override fun onCreatePreferences(bundle: Bundle, s: String) {
+        // Load the Preferences from the XML file
         addPreferencesFromResource(R.xml.pref)
     }
 
+
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        addPreferencesFromResource(R.xml.pref)
+//    }
 }
