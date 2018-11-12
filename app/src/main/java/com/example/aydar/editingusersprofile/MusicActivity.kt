@@ -13,34 +13,33 @@ import android.os.IBinder
 import android.support.annotation.RequiresApi
 import android.support.v7.preference.PreferenceManager
 import android.view.View
+import android.widget.ImageView
 import kotlinx.android.synthetic.main.activity_music.*
 
 class MusicActivity : AppCompatActivity(), View.OnClickListener, MusicService.Callback {
+
     override fun changeData(p: Int) {
         txt_singer2.text = Song.songs[p].singer
         txt_song2.text = Song.songs[p].song
         image_song2.setImageResource(Song.songs[p].image)
     }
 
+    lateinit var imagePlay: ImageView
     lateinit var musicService: MusicService
     var isBound = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         Theme(this).changeTheme()
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_music)
-        btn_play.setOnClickListener(this)
-        btn_pause.setOnClickListener(this)
-        btn_next.setOnClickListener(this)
-        btn_prev.setOnClickListener(this)
+        image_play.setOnClickListener(this)
+        image_next.setOnClickListener(this)
+        image_prev.setOnClickListener(this)
         changeData(getIntent().getIntExtra(MainActivity.CONST_SONG_NUM, 0))
-
+        imagePlay = image_play
     }
 
     override fun onStart() {
-
         val intent = Intent(this, MusicService::class.java)
         val songNum = getIntent().getIntExtra(MainActivity.CONST_SONG_NUM, -1)
         if (songNum >= 0)
@@ -53,14 +52,12 @@ class MusicActivity : AppCompatActivity(), View.OnClickListener, MusicService.Ca
     override fun onStop() {
         super.onStop()
         if (isBound) {
-
             unbindService(connection)
             isBound = false
         }
     }
 
     private val connection = object : ServiceConnection {
-
         override fun onServiceConnected(className: ComponentName, service: IBinder) {
             val binder: MusicService.MyBinder = service as MusicService.MyBinder
             musicService = binder.service
@@ -75,61 +72,29 @@ class MusicActivity : AppCompatActivity(), View.OnClickListener, MusicService.Ca
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.btn_play -> {
+            R.id.image_play -> {
+                if (musicService.isPlayerPlaying()) {
+                    imagePlay.setImageResource(R.drawable.play)
+                } else if (!musicService.isPlayerPlaying())
+                    imagePlay.setImageResource(R.drawable.pause)
                 musicService.playOrStopMusic()
             }
-            R.id.btn_pause -> {
-                musicService.pauseMusic()
-            }
-            R.id.btn_next -> {
+            R.id.image_next -> {
                 musicService.playNextSong()
                 changeData(musicService.currentSong)
+                imagePlay.setImageResource(R.drawable.pause)
             }
-            R.id.btn_prev -> {
+            R.id.image_prev -> {
                 musicService.playPreviousSong()
                 changeData(musicService.currentSong)
+                imagePlay.setImageResource(R.drawable.pause)
             }
         }
-    }
-
-
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun createNotificationChannel() {
-        val name = "Channel name"
-        val descriptionText = "Channel Description"
-        val importance = NotificationManager.IMPORTANCE_DEFAULT
-        val channel = NotificationChannel("channelid", name, importance).apply {
-            description = descriptionText
-        }
-        val notificationManager: NotificationManager =
-                this.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.createNotificationChannel(channel)
     }
 
     override fun onDestroy() {
         super.onDestroy()
         val intent = Intent(this, MusicService::class.java)
         stopService(intent)
-    }
-    fun changeTheme(){
-        val sharedPref = PreferenceManager.getDefaultSharedPreferences(this)
-        val currentTheme = sharedPref.getString("theme", "theme1")
-        var themeId = R.style.AppTheme
-        when (currentTheme) {
-            "theme1" -> {
-                themeId = R.style.AppTheme
-            }
-            "theme2" -> {
-                themeId = R.style.AppTheme2
-            }
-            "theme3" -> {
-                themeId = R.style.AppTheme3
-            }
-            "theme4" -> {
-                themeId = R.style.AppTheme4
-            }
-        }
-        setTheme(themeId)
     }
 }

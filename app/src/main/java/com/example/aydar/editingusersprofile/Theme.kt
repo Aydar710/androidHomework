@@ -4,7 +4,7 @@ import android.content.Context
 import android.support.v7.preference.PreferenceManager
 
 class Theme(val context: Context) {
-    fun changeTheme(){
+    fun changeTheme() {
         val sharedPref = PreferenceManager.getDefaultSharedPreferences(context)
         val currentTheme = sharedPref.getString("theme", "theme1")
         var themeId = R.style.AppTheme

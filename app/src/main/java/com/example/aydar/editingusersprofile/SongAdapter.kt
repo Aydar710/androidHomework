@@ -1,8 +1,6 @@
 package com.example.aydar.editingusersprofile
 
-import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,7 +31,6 @@ class SongAdapter(val songs: ArrayList<Song>) : RecyclerView.Adapter<SongAdapter
             listener.onClick(position)
         }
     }
-
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var txtSinger = itemView.txt_singer

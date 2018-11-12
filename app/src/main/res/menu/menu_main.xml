@@ -3,11 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_change"
-        android:title="Change Theme"
-        app:showAsAction="always"/>
-
-    <item
         android:id="@+id/action_themes"
         android:title="Themes"
         app:showAsAction="ifRoom"
