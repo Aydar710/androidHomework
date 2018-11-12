@@ -47,13 +47,14 @@ class MusicService : Service() {
             mediaPlayer?.seekTo(currentPosition)
             mediaPlayer?.start()
             //TODO поменять иконку stop на play
+            imagePlay.setImageResource(R.drawable.play)
         } else if (mediaPlayer != null && mediaPlayer!!.isPlaying) {
             mediaPlayer?.let {
                 it.pause()
                 currentPosition = it.currentPosition
             }
             //TODO поменять иконку play на stop
-            //imagePlay.setImageDrawable(R.drawable.stop)
+            imagePlay.setImageResource(R.drawable.pause);
         }
     }
 
