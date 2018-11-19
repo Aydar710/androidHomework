@@ -10,28 +10,4 @@
         <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
     </style>
 
-    <style name="AppTheme2" parent="Base.Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/colorPrimaryTheme2</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDarkTheme2</item>
-        <item name="colorAccent">@color/colorAccentTheme2</item>
-        <item name="cardViewStyle">@style/CardView</item>
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
-    </style>
-
-    <style name="AppTheme3" parent="Base.Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/colorPrimaryTheme3</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDarkTheme3</item>
-        <item name="colorAccent">@color/colorAccentTheme3</item>
-        <item name="cardViewStyle">@style/CardView</item>
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
-    </style>
-
-    <style name="AppTheme4" parent="Base.Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/colorPrimaryTheme4</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDarkTheme4</item>
-        <item name="colorAccent">@color/colorAccentTheme4</item>
-        <item name="cardViewStyle">@style/CardView</item>
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
-    </style>
-
 </resources>
