@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">EditingUsersProfile</string>
+    <string name="payment">Оплата</string>
+    <string name="delivery">Доcтавка</string>
+    <string name="city_delivery">Доставка по городу</string>
+    <string name="urgency_allowance">Надбавка за срочность</string>
+    <string name="cost">Стоимость</string>
+    <string name="discount">Скидка</string>
+    <string name="total">Итого</string>
+    <string name="total_payable">Итого к оплате</string>
+    <string name="pay">ОПЛАТИТЬ</string>
+    <string name="more">More</string>
 </resources>
