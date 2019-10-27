@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <ImageView
+            android:id="@+id/iv_arrow_right_payment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintRight_toRightOf="@id/gl_right"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_arrow_right_delivery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintRight_toRightOf="@id/gl_right"
+            app:layout_constraintTop_toBottomOf="@id/divider_payment" />
+
+        <TextView
+            android:id="@+id/tv_payment_method"
+            style="@style/DefaultText14.TextBlack"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:alpha="0.5"
+            app:layout_constraintLeft_toLeftOf="@id/gl_left"
+            app:layout_constraintTop_toBottomOf="@id/tv_payment"
+            android:text="Картой **** **** **** 2140" />
+
+        <TextView
+            android:id="@+id/tv_payment"
+            style="@style/DefaultText14.DefaultText16"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:alpha="0.8"
+            android:text="@string/payment"
+            app:layout_constraintLeft_toRightOf="@id/gl_left"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_delivery_method"
+            style="@style/DefaultText14.TextBlack"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:alpha="0.5"
+            app:layout_constraintLeft_toLeftOf="@id/gl_left"
+            app:layout_constraintTop_toBottomOf="@id/tv_delivery"
+            android:text="Экспресс доставка курьером" />
+
+        <TextView
+            android:id="@+id/tv_delivery"
+            style="@style/DefaultText14.DefaultText16"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:alpha="0.8"
+            android:text="@string/delivery"
+            app:layout_constraintLeft_toRightOf="@id/gl_left"
+            app:layout_constraintTop_toTopOf="@id/divider_payment" />
+
+        <TextView
+            android:id="@+id/tv_city_delivery"
+            style="@style/DefaultText14.TextBlack"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:alpha="0.5"
+            android:text="@string/city_delivery"
+            app:layout_constraintLeft_toLeftOf="@id/gl_left"
+            app:layout_constraintTop_toBottomOf="@id/divider_delivery" />
+
+        <TextView
+            android:id="@+id/tv_urgency_allowance"
+            style="@style/DefaultText14.TextBlack"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:alpha="0.5"
+            android:text="@string/urgency_allowance"
+            app:layout_constraintLeft_toLeftOf="@id/gl_left"
+            app:layout_constraintTop_toBottomOf="@id/tv_city_delivery" />
+
+        <TextView
+            android:id="@+id/tv_city_delivery_value"
+            style="@style/DefaultText14.TextBlack"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:alpha="0.5"
+            app:layout_constraintRight_toRightOf="@id/gl_right"
+            app:layout_constraintTop_toBottomOf="@id/divider_delivery"
+            android:text="100Р" />
+
+        <TextView
+            android:id="@+id/tv_urgency_allowance_value"
+            style="@style/DefaultText14.TextBlack"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:alpha="0.5"
+            app:layout_constraintRight_toRightOf="@id/gl_right"
+            app:layout_constraintTop_toBottomOf="@id/tv_city_delivery_value"
+            android:text="500Р" />
+
+        <View
+            android:id="@+id/divider_payment"
+            style="@style/Divider"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_payment_method" />
+
+        <View
+            android:id="@+id/divider_delivery"
+            style="@style/Divider"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_delivery_method" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

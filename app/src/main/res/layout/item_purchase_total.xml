@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_cost"
+            style="@style/DefaultText14.TextBlack"
+            android:alpha="0.5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/cost"
+            app:layout_constraintLeft_toLeftOf="@id/gl_left"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            style="@style/DefaultText14.TextBlack"
+            android:alpha="0.5"
+            android:id="@+id/tv_cost_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintRight_toRightOf="@id/gl_right"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="1 500 ₽ x 4" />
+
+
+        <TextView
+            android:id="@+id/tv_delivery"
+            style="@style/DefaultText14.TextBlack"
+            android:alpha="0.5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/delivery"
+            app:layout_constraintLeft_toLeftOf="@id/gl_left"
+            app:layout_constraintTop_toBottomOf="@id/tv_cost" />
+
+        <TextView
+            android:id="@+id/tv_delivery_value"
+            style="@style/DefaultText14.TextBlack"
+            android:alpha="0.5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layout_constraintRight_toRightOf="@id/gl_right"
+            app:layout_constraintTop_toBottomOf="@id/tv_cost_value"
+            android:text="600 ₽" />
+
+        <TextView
+            style="@style/DefaultText14.TextBlack"
+            android:alpha="0.5"
+            android:id="@+id/tv_discount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/discount"
+            app:layout_constraintLeft_toLeftOf="@id/gl_left"
+            app:layout_constraintTop_toBottomOf="@id/tv_delivery" />
+
+        <TextView
+            style="@style/DefaultText14.TextBlack"
+            android:alpha="0.5"
+            android:id="@+id/tv_discount_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layout_constraintRight_toRightOf="@id/gl_right"
+            app:layout_constraintTop_toBottomOf="@id/tv_delivery_value"
+            android:text="–" />
+
+        <TextView
+            android:id="@+id/tv_total"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            style="@style/DefaultText14"
+            android:text="@string/total"
+            app:layout_constraintLeft_toLeftOf="@id/gl_left"
+            app:layout_constraintTop_toBottomOf="@id/tv_discount" />
+
+        <TextView
+            android:id="@+id/tv_total_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/DefaultText14.TextBlack"
+            android:layout_marginTop="4dp"
+            app:layout_constraintRight_toRightOf="@id/gl_right"
+            app:layout_constraintTop_toBottomOf="@id/tv_discount_value"
+            android:text="9 600 ₽" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
